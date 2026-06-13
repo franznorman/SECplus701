@@ -1,0 +1,92 @@
+ping socir.rivanit.com
+http://socir.rivanit.com/otrs/customer.pl
+username: user1
+pass: C1sc0123
+
+detect
+contain
+investigate
+remidiate
+review
+
+
+MITRE ATTA&CK
+
+SOC L3/T3 
+
+http://socir.rivanit.com/otrs/index.pl
+username: admin
+pass: C1sc0123
+
+
+kali linux / incident response
+
+
+blue>10red>11orange>12blackFE0/0
+
+TO BUILD NETWORK: C.I.A
+CONFIDENTIALITY: secureCRT+consoleCable
+INTEGRITY: hash code: sha256
+AVAILABILITY: redundancy
+
+HACK RED TEAM
+PROTECT BLUE TEAM
+
+SEC DEVOPS
+
+gitHub - repository; virus apps put in github.
+git-utility
+
+git clone https://github.com/rivancorp/SECplus701
+
+DAY1-May5-SirRob.txt
+
+certutil - harshfile DAY1-May5-SirRob.txt sha256 (hashcode)
+
+
+kali linux download> include hash code
+
+hash code - verify if there's virus
+
+TASK5: GOALS OF CYBERSECURITY:
+CONFIDENTIALITY: secureCRT+consoleCable
+INTEGRITY: hash code: sha256
+AVAILABILITY: redundancy
+
+VLAN will isolate 
+
+HOW TO HACK AND HOW NOT TO GET HACKED
+SOCKET: 
+
+how to check backdoor attack: cmd>\cd>netstat -ano
+
+installation of crack software lead to foreign address; to identify malware, shows foreign address
+
+The TCP Three-Way Handshake
+
+hacker/client  		victim/server
+
+<-----------------------  SYN =x  ------------------->
+<-----------------------  SYN =x  ------------------->
+
+OSI LAYER FROM A CYBER SECURITY VEIW POINT
+7 OSI LAYER
+
+APPLICATION LAYER - FACEBOOK MESSENGER; SOURCE OF SUNJECT; BYTES
+
+PHYSICAL LAYER - AIRPLANE MODE; (VIT) VOLTAGE INTERFACE TRANSMISSION (BITS)
+
+OSI LAYER BYTES TO BIT
+
+RADIO FREQUENCY, FIBER OPTICS
+
+
+
+NETWORKING 
+
+
+
+
+
+
+

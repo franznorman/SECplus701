@@ -1,0 +1,93 @@
+HOMELAB FOR CYBER SECURITY
+
+---- BEGIN SSH2 PUBLIC KEY ----
+AAAAB3NzaC1yc2EAAAADAQABAAABAQDLiMRSB5wT71ecYS5K7+N/oAzYPgZk4alp
+Ix6M4fmFijhtkieJvsBx7dWeRWw+4pRy9anCYv5OmaoXv43rGo2AEFB1SCoG1F00
+p5hOYX9dkf1T3EMmAytKAcqvqKA0Q/48vcWo7z2OTbTNVx4WXTE/GDGPt2bELm3b
+3wsfdX4ez2woly05SqUh0brpD/WkkVStEcUZCrkEMFlKvTk6rk1OPm2CUB/zJ5xm
+lJcgAK6ZGBlh2pPyKBy22VOpZFmofD00Pnb4N81QLECYh9mcP8S6Mfur4xZTo5TO
+h8HxhEOkspz3x7N4+YTg1hJZRXRs7ZM1a9kaInfSpsLiXWdnmfpP
+---- END SSH2 PUBLIC KEY ----
+
+
+config t
+NO ip access-list standard NOPORNFAP
+ip access-list standard NOPORNFAP
+DENY 66.254.0.0 0.0.255.255
+DENY 104.21.0.0 0.0.255.255
+DENY 68.235.0.0 0.0.255.255
+DENY 104.0.0.0 0.255.255.255
+DENY 88.208.0.0 0.0.255.255
+DENY 208.77.0.0 0.0.255.255
+DENY 172.67.0.0 0.0.255.255
+Permit Any
+Int Gi 1
+ ip access-group NOPORNFAP in
+end
+
+
+
+config t
+int Gi 3
+ no shut
+ ip add 192.168.103.11 255.255.255.0
+ ip add 192.168.103.10 255.255.255.0 Secondary
+service finger
+service tcp-small-servers
+service udp-small-servers
+ip dns server
+ip http server
+ip http secure-server
+!Make Ping EASY
+ip host www.bet10.com 192.168.103.10
+ip host www.bet11.com 192.168.103.11
+end
+
+
+task8: creating and protecting gambling website; 
+
+
+
+INSIDE/INTERNET      	  OUTSIDE/PUBLIC
+bet10.com 192.168.103.10	  208.8.8.69
+bet11.com 192.168.103.11 	  208.8.8.69
+
+
+config t
+no access-list 8
+access-list 8 permit host 192.168.103.11
+access-list 8 permit host 192.168.103.10
+Int Gi 3
+ ip nat Inside
+Int gi 1
+ ip nat Outside
+IP Nat inside source static tcp 192.168.103.10 80 208.8.8.88 80
+IP Nat inside source static tcp 192.168.103.10 443 208.8.8.88 443
+!for www.surebet22.com
+IP Nat inside source static tcp 192.168.103.11 80 208.8.8.69 80
+IP Nat inside source static tcp 192.168.103.11 443 208.8.8.69 8443
+
+IP nat inside source list 8 int gi 1 Overload
+end
+show ip nat translation
+
+
+
+config t
+no access-list 8
+access-list 8 permit host 192.168.103.21
+access-list 8 permit host 192.168.103.22
+Int Gi 3
+ ip nat Inside
+Int gi 1
+ ip nat Outside
+IP Nat inside source static tcp 192.168.103.10 80 208.8.8.88 80
+IP Nat inside source static tcp 192.168.103.10 443 208.8.8.88 443
+!for www.surebet22.com
+IP Nat inside source static tcp 192.168.103.11 80 208.8.8.69 80
+IP Nat inside source static tcp 192.168.103.11 443 208.8.8.69 8443
+IP nat inside source list 8 int gi 1 Overload
+end
+show ip nat translation
+
+
